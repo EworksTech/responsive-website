@@ -1,7 +1,7 @@
 $(document).ready(function() {
   	
 	
-	var frames = [$("#quem-somos"),$("#oque-fazemos"),$("#contato")];
+	var frames = [$("#home-intro"),$("#quem-somos"),$("#o-que-fazemos"),$("#entre-em-contato")];
 	
 	// Cache the Window object
 	$window = $(window);
@@ -12,6 +12,16 @@ $(document).ready(function() {
 		$(this).data('offsetY', parseInt($(this).attr('data-offsetY')));
 		$(this).data('Xposition', $(this).attr('data-Xposition'));
 		$(this).data('speed', $(this).attr('data-speed'));
+	});
+	
+	$('#home-intro .reveal').click(function(){
+	// $('#home-intro .parallax-bg').css('background-image', 'url(../img/who_screen_kids.jpg)');
+		$('#home-intro .parallax-bg').fadeOut('fast', function() {
+		     $('#home-intro .parallax-bg').css('background-image', 'url(../img/who.jpg)')
+		         .fadeIn('fast');
+		});
+	//	$('#home-intro .parallax-bg').fadeTo('slow', 0.3, function(){
+	//	}).fadeTo('slow', 1);
 	});
 	
 	// For each element that has a data-type attribute
@@ -101,6 +111,39 @@ $(document).ready(function() {
 		
 	});
 	
+	$('.form').focus(function(){
+		$('#formAlert').html('');
+	});
+
+	$('#inputSubmit').click(function(){
+		if (IsEmail($('#inputEmail').val())) {
+			$.ajax({
+			  type: "POST",
+			  url: "send.php",
+			  data: { 
+					name: $('#inputName').val(),
+					email: $('#inputEmail').val(),
+					message: $('#inputMessage').val()
+				}
+			}).done(function(data) {
+				$('#inputName').val('');
+				$('#inputEmail').val('');
+				$('#inputMessage').val('');
+				$('#formAlert').html('Sua mensagem foi enviada com sucesso!<br>Entraremos em contato em breve.');
+			});
+		}
+		else {
+			$('#formAlert').html('Por favor, informe um e-mail válido.');
+		}
+	});          
 	
-	
-  });
+});
+
+function IsEmail(email) {
+  var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if(!regex.test(email)) {
+     return false;
+  }else{
+     return true;
+  }
+}
