@@ -22,7 +22,7 @@
 
   /*---------------------------------------------------------------------------------*/
   #home-intro{	  
-	  height: 850px;	  
+	  height: 780px;	  
   }
    
   #home-intro .description{
@@ -68,15 +68,15 @@
 
   /*---------------------------------------------------------------------------------*/
   #quem-somos{	  
-	  height: 750px;	  
+	  height: 780px;	  
   }
   
   #quem-somos .parallax-bg{
+	
 	position:relative;
-	top: 100px;
     background: transparent url(../img/dest01.jpg) 50% 0 no-repeat;
-    background-size:auto 100%;
-	height: 950px;
+	background-size:auto 100%;
+    height: 1114px;
   }
   
   #quem-somos .description{
@@ -120,14 +120,13 @@
   
   /*-------------------------------*/  
   #o-que-fazemos{	  
-	  height: 850px;	  
+	  height: 780px;	  
   }
   
   #o-que-fazemos .parallax-bg{
 	position: relative;
-	top: 100px;
-   background: transparent url(../img/what_we_do.jpg) 50% 0 no-repeat;
-	height: 460px;
+    background: transparent url(../img/what_we_do.jpg) 50% 0 no-repeat;
+	height: 1114px;
   }
   
   #o-que-fazemos .description{

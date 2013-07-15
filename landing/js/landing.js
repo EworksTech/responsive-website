@@ -27,7 +27,9 @@ $(document).ready(function() {
 	$('.frame').each(function(){
 	
 	    
+		
 		// Store some variables based on where we are
+		
 		var $self = $(this);
 		var offsetCoords = $self.offset();
 		var topOffset = offsetCoords.top;
@@ -35,12 +37,18 @@ $(document).ready(function() {
 		
 		// When the window is scrolled...
 	    $(window).scroll(function() {
-	
-				if ( ($window.scrollTop() + $window.height()) > (topOffset) && ( (topOffset + $self.height()) > $window.scrollTop() ) ) {
 				
+				
+				
+				//if ( ($window.scrollTop() + $window.height()) > (topOffset) && ( (topOffset + $self.height()) > $window.scrollTop() ) ) {
+					
+					
 					// Check for other sprites in this section	
 					$('[data-type="background"]', $self).each(function() {
 						
+						
+						
+						if ( ($window.scrollTop() + $window.height()) > (topOffset) && ( (topOffset + $self.height()) > $window.scrollTop() ) ) {
 						// If this section is in view
 						
 							// Scroll the background at var speed
@@ -56,8 +64,9 @@ $(document).ready(function() {
 							var coords = '50% '+ yPos + 'px';
 			
 							// Move the background
-							$(this).css({ backgroundPosition: coords });	
-					
+							$(this).css({ backgroundPosition: coords });
+							
+						}
 					
 					}); 
 					
@@ -74,7 +83,7 @@ $(document).ready(function() {
 					
 					});
 				
-				}
+				//}
 				
 								
 				$(frames).each(function(i,obj){
